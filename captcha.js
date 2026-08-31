@@ -20,24 +20,22 @@
 
   const waitForTurnstile = (attempt = 0) => {
     if (window.turnstile) {
-      window.turnstile.ready(() => {
-        window.turnstile.render(container, {
-          sitekey,
-          theme: 'dark',
-          appearance: 'always',
-          callback: (token) => {
-            status.textContent = 'Verified. Returning to Syntaxi…'
-            const callback = new URL('syntaxforge://captcha/callback')
-            callback.searchParams.set('nonce', nonce)
-            callback.searchParams.set('purpose', purpose)
-            callback.searchParams.set('token', token)
-            window.location.assign(callback.toString())
-          },
-          'error-callback': () => fail('Verification could not finish. Check your connection and try again.'),
-          'expired-callback': () => { status.textContent = 'Verification expired. Complete the check again.' },
-        })
-        status.textContent = 'Complete the check to continue.'
+      window.turnstile.render(container, {
+        sitekey,
+        theme: 'dark',
+        appearance: 'always',
+        callback: (token) => {
+          status.textContent = 'Verified. Returning to Syntaxi…'
+          const callback = new URL('syntaxforge://captcha/callback')
+          callback.searchParams.set('nonce', nonce)
+          callback.searchParams.set('purpose', purpose)
+          callback.searchParams.set('token', token)
+          window.location.assign(callback.toString())
+        },
+        'error-callback': () => fail('Verification could not finish. Check your connection and try again.'),
+        'expired-callback': () => { status.textContent = 'Verification expired. Complete the check again.' },
       })
+      status.textContent = 'Complete the check to continue.'
       return
     }
     if (attempt >= 50) { fail('Verification could not load. Check your connection and try again.'); return }

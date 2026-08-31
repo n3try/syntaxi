@@ -7,7 +7,7 @@
     "assets:og": "node tools/render-og.mjs",
     "test": "npm run test:html && npm run test:accessibility",
     "test:html": "html-validate index.html privacy.html terms.html accessibility.html captcha.html",
-    "test:accessibility": "playwright test tests/accessibility.spec.js"
+    "test:accessibility": "playwright test"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
