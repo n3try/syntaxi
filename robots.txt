@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://n3try.github.io/syntax-forge-downloads/sitemap.xml
+Sitemap: https://n3try.github.io/syntaxi/sitemap.xml
