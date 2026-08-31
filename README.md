@@ -1,6 +1,6 @@
 # Syntaxi Downloads
 
-This public repository hosts Windows release files for Syntaxi. The source project is maintained separately in a private repository.
+This public repository hosts the Syntaxi website and Windows and macOS release files. The source project is maintained separately in a private repository.
 
 ## Website
 
@@ -31,6 +31,8 @@ Other choices are available on the [latest release page](https://github.com/n3tr
 
 - **Syntaxi Setup.exe** contains the complete app for offline installation.
 - **Syntaxi Portable.exe** runs without installing.
+- **Syntaxi.Mac.arm64.dmg** runs on Apple silicon Macs.
+- **Syntaxi.Mac.x64.dmg** runs on Intel Macs.
 
 The legacy `syntax-forge-downloads` repository and `syntaxforge://` app-link scheme remain online so older installs, account callbacks, and automatic updates keep working.
 - **SHA256SUMS.txt** contains verification hashes.
@@ -40,3 +42,7 @@ The `.nsis.7z` file is used automatically by Web Setup. It is not a manual downl
 ## Windows warning
 
 The current builds are not Authenticode-signed. Windows SmartScreen may display an unknown publisher warning until a trusted Windows code-signing certificate is added.
+
+## macOS warning
+
+The current Mac builds are not signed or notarized. macOS Gatekeeper may block the first launch. Use **Open Anyway** in System Settings under Privacy &amp; Security only after confirming the download came from this repository. Apple signing and notarization are required before this should be treated as a polished production download.

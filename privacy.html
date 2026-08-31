@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#171717">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'">
-    <meta name="description" content="How the Syntaxi website and Windows app handle local progress, downloads, updates, cloud accounts, and personal information.">
+    <meta name="description" content="How the Syntaxi website and desktop apps handle local progress, downloads, updates, cloud accounts, and personal information.">
     <link rel="canonical" href="https://n3try.github.io/syntaxi/privacy.html">
     <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
@@ -31,8 +31,8 @@
       <header class="policy-heading">
         <p class="eyebrow"><span></span> POLICY</p>
         <h1>Privacy Policy</h1>
-        <p>This policy explains what happens to information when you visit the Syntaxi website, download a release, or use the current public Windows app.</p>
-        <div class="policy-meta"><span>Effective: August 30, 2026</span><span>Last updated: August 30, 2026</span></div>
+        <p>This policy explains what happens to information when you visit the Syntaxi website, download a release, or use the Windows or macOS app.</p>
+        <div class="policy-meta"><span>Effective: August 30, 2026</span><span>Last updated: August 31, 2026</span></div>
       </header>
 
       <aside class="policy-summary" aria-labelledby="privacy-summary-title">
@@ -62,7 +62,7 @@
                 <tr><th scope="row">Course progress</th><td>The app saves completed lessons, XP, streaks, preferences, and achievements locally. If you sign in, those fields are also synced to the Syntaxi Supabase project so you can continue on another computer.</td></tr>
                 <tr><th scope="row">Lesson code</th><td>Files you write in lessons stay in <code>Documents\Syntax Forge Workspace</code>. The current public build does not upload those files.</td></tr>
                 <tr><th scope="row">Updates</th><td>The installed app contacts the public GitHub Releases feed to check for and download updates. The request does not include course progress, but GitHub receives ordinary network metadata such as an IP address.</td></tr>
-                <tr><th scope="row">Runtime installs</th><td>If you choose a guided runtime install, the app starts Microsoft WinGet. Microsoft and the selected package source or software publisher may receive ordinary installation and network data under their own policies.</td></tr>
+                <tr><th scope="row">Runtime installs</th><td>If you choose a guided runtime install, the app starts Microsoft WinGet on Windows or Homebrew on macOS. The package manager and selected software publisher may receive ordinary installation and network data under their own policies.</td></tr>
                 <tr><th scope="row">Cloud accounts</th><td>Supabase Auth processes your email, display name, account identifiers, authentication records, and a salted password hash. Syntaxi does not receive or store a readable password. Google sign-in may be offered as an optional alternative in a later build.</td></tr>
                 <tr><th scope="row">Abuse prevention</th><td>Cloudflare Turnstile processes ordinary device, browser, network, and challenge information when you create an account, sign in, or request a password reset. The result is used only to determine whether the request appears automated.</td></tr>
               </tbody>
@@ -79,7 +79,7 @@
 
         <section aria-labelledby="use-title">
           <h2 id="use-title">5. Why information is used</h2>
-          <p>Local and synced progress is used to show your progress, continue lessons, remember learning preferences, and operate the software. Account data is used to authenticate you, verify your email, recover your account, secure the service, and associate synced progress with your account. GitHub-hosted requests deliver the website, releases, and updates. WinGet requests install software only after you choose an install action.</p>
+          <p>Local and synced progress is used to show your progress, continue lessons, remember learning preferences, and operate the software. Account data is used to authenticate you, verify your email, recover your account, secure the service, and associate synced progress with your account. GitHub-hosted requests deliver the website, releases, and updates. WinGet or Homebrew requests install software only after you choose an install action.</p>
         </section>
 
         <section aria-labelledby="retention-title">
@@ -90,8 +90,8 @@
 
         <section aria-labelledby="security-title">
           <h2 id="security-title">7. Security</h2>
-          <p>The site and release downloads use HTTPS through GitHub. Supabase protects account passwords with salted password hashing, and database row-level security restricts signed-in users to their own progress record. Desktop sessions are encrypted with Windows secure storage. Published releases include SHA-256 checksums so you can verify file integrity. No internet service or local application can promise perfect security.</p>
-          <p class="policy-callout">The current Windows installer is not Authenticode-signed. Windows may display an “Unknown publisher” warning. Download only from the official release links on this site.</p>
+          <p>The site and release downloads use HTTPS through GitHub. Supabase protects account passwords with salted password hashing, and database row-level security restricts signed-in users to their own progress record. Desktop sessions use operating-system secure storage, including Windows Data Protection or the macOS Keychain. Published releases include SHA-256 checksums so you can verify file integrity. No internet service or local application can promise perfect security.</p>
+          <p class="policy-callout">The current Windows installer is not Authenticode-signed, and the macOS app is not signed or notarized. Windows or macOS may block the first launch. Download only from the official release links on this site.</p>
         </section>
 
         <section aria-labelledby="children-title">

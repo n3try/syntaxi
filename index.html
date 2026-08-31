@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#171717">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'">
-    <meta name="description" content="Download Syntaxi, a local Windows app with complete courses for Python, JavaScript, TypeScript, Go, C++, C#, Lua, and the Linux terminal.">
+    <meta name="description" content="Download Syntaxi for Windows or macOS, with complete courses for Python, JavaScript, TypeScript, Go, C++, C#, Lua, and the Linux terminal.">
     <link rel="canonical" href="https://n3try.github.io/syntaxi/">
     <meta property="og:title" content="Syntaxi | Learn by writing code">
     <meta property="og:description" content="153 local coding lessons, real program output, guided courses, projects, quizzes, and runtime setup.">
@@ -15,11 +15,11 @@
     <meta property="og:image" content="https://n3try.github.io/syntaxi/assets/og.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Syntaxi | Learn by writing code">
-    <meta name="twitter:description" content="A local Windows learning workspace for eight programming courses.">
+    <meta name="twitter:description" content="A local Windows and macOS learning workspace for eight programming courses.">
     <meta name="twitter:image" content="https://n3try.github.io/syntaxi/assets/og.png">
     <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
-    <title>Syntaxi | Download for Windows</title>
+    <title>Syntaxi | Download for Windows and macOS</title>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -39,23 +39,25 @@
     <main id="main-content" tabindex="-1">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow"><span></span> Windows desktop app</p>
+          <p class="eyebrow"><span></span> Windows and macOS desktop app</p>
           <h1 id="hero-title">Learn programming by actually writing it.</h1>
           <p class="hero-summary">Syntaxi turns beginner lessons into a working local setup: real files, real program output, guided exercises, quizzes, and projects that build on each other.</p>
           <div class="primary-actions">
-            <a class="button primary" id="download-button" href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Web.Setup.exe">
-              <span>Download Web Setup</span>
-              <small>Small Windows installer</small>
+            <a class="button primary" id="windows-download-button" href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Web.Setup.exe">
+              <span>Download for Windows</span>
+              <small>Small web installer</small>
             </a>
-            <a class="button secondary" id="open-app-button" href="syntaxforge://open">
-              <span>Open Syntaxi</span>
-              <small>Already installed?</small>
+            <a class="button secondary" id="mac-download-button" href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Mac.arm64.dmg">
+              <span>Download for macOS</span>
+              <small>Apple silicon</small>
             </a>
           </div>
-          <p class="action-status" id="action-status" role="status" aria-live="polite" aria-atomic="true">Windows 10 or 11 · 64-bit · No account required</p>
+          <p class="action-status" id="action-status" role="status" aria-live="polite" aria-atomic="true">Windows 10/11 or macOS 13+ · 64-bit · No account required</p>
           <div class="release-links">
-            <a href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Setup.exe">Offline installer</a>
-            <a href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Portable.exe">Portable app</a>
+            <a href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Mac.x64.dmg">Intel Mac</a>
+            <a href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Setup.exe">Windows offline installer</a>
+            <a href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Portable.exe">Windows portable app</a>
+            <a id="open-app-button" href="syntaxforge://open">Open installed app</a>
             <a href="https://github.com/n3try/syntaxi/releases/latest/download/SHA256SUMS.txt">Checksums</a>
           </div>
           <p class="download-notice">By downloading or using Syntaxi, you agree to the <a href="terms.html">Terms of Use</a>. See the <a href="privacy.html">Privacy Policy</a> for what stays local and what GitHub receives.</p>
@@ -99,13 +101,13 @@
           <h2 id="workflow-title">From download to first program.</h2>
         </header>
         <ol>
-          <li><span>01</span><div><h3>Run Web Setup</h3><p>The small installer downloads the current application package from the public GitHub release.</p></div></li>
+          <li><span>01</span><div><h3>Choose your platform</h3><p>Windows uses a small web installer. macOS uses a disk image for either Apple silicon or Intel.</p></div></li>
           <li><span>02</span><div><h3>Check your runtimes</h3><p>Syntaxi detects Python, Node.js, Go, C++, C#, Lua, Luau, and Bash, with guided install actions for missing tools.</p></div></li>
           <li><span>03</span><div><h3>Write and run code</h3><p>Lessons save to a dedicated workspace. Your programs run locally and their actual output is checked.</p></div></li>
         </ol>
         <aside>
-          <strong>Windows may show “Unknown publisher.”</strong>
-          <p>The current builds are not yet Authenticode-signed. That warning is expected, but it should not be hidden or misrepresented.</p>
+          <strong>The current downloads are not code signed.</strong>
+          <p>Windows may show “Unknown publisher.” macOS may block the first launch until you use Open Anyway in Privacy &amp; Security. These warnings are real and will remain until platform signing is added.</p>
         </aside>
       </section>
 
@@ -114,7 +116,7 @@
           <p>READY WHEN YOU ARE</p>
           <h2 id="final-title">Install Syntaxi and continue from your own workspace.</h2>
         </div>
-        <a class="button primary" href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Web.Setup.exe"><span>Download Web Setup</span><small>Get the latest release</small></a>
+        <div class="final-download-actions"><a class="button primary" href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Web.Setup.exe"><span>Windows download</span><small>Small web installer</small></a><a class="button secondary" href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Mac.arm64.dmg"><span>macOS download</span><small>Apple silicon</small></a></div>
       </section>
     </main>
 
