@@ -1,7 +1,10 @@
 const status = document.querySelector('#action-status')
 const openButton = document.querySelector('#open-app-button')
 const windowsDownloadButton = document.querySelector('#windows-download-button')
-const macDownloadButton = document.querySelector('#mac-download-button')
+const macDownloadButtons = document.querySelectorAll('[data-macos-download]')
+const macDownloadDialog = document.querySelector('#mac-download-dialog')
+const macDownloadConfirm = document.querySelector('#mac-download-confirm')
+const macDownloadArchitecture = document.querySelector('#mac-download-architecture')
 
 let launchTimer
 
@@ -26,7 +29,20 @@ windowsDownloadButton.addEventListener('click', () => {
   status.classList.add('active')
 })
 
-macDownloadButton.addEventListener('click', () => {
-  status.textContent = 'Your Apple silicon macOS download is starting…'
+macDownloadButtons.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    event.preventDefault()
+    const architecture = button.dataset.macArchitecture
+    macDownloadConfirm.href = button.href
+    macDownloadConfirm.dataset.macArchitecture = architecture
+    macDownloadArchitecture.textContent = `${architecture} Mac`
+    macDownloadDialog.showModal()
+  })
+})
+
+macDownloadConfirm.addEventListener('click', () => {
+  const architecture = macDownloadConfirm.dataset.macArchitecture
+  status.textContent = `Your ${architecture} macOS download is starting…`
   status.classList.add('active')
+  macDownloadDialog.close()
 })

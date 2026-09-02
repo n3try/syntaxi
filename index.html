@@ -47,14 +47,14 @@
               <span>Download for Windows</span>
               <small>Small web installer</small>
             </a>
-            <a class="button secondary" id="mac-download-button" href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Mac.arm64.dmg">
+            <a class="button secondary" id="mac-download-button" data-macos-download data-mac-architecture="Apple silicon" href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Mac.arm64.dmg">
               <span>Download for macOS</span>
               <small>Apple silicon</small>
             </a>
           </div>
           <p class="action-status" id="action-status" role="status" aria-live="polite" aria-atomic="true">Windows 10/11 or macOS 13+ · 64-bit · No account required</p>
           <div class="release-links">
-            <a href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Mac.x64.dmg">Intel Mac</a>
+            <a data-macos-download data-mac-architecture="Intel" href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Mac.x64.dmg">Intel Mac</a>
             <a href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Setup.exe">Windows offline installer</a>
             <a href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Portable.exe">Windows portable app</a>
             <a id="open-app-button" href="syntaxforge://open">Open installed app</a>
@@ -106,8 +106,8 @@
           <li><span>03</span><div><h3>Write and run code</h3><p>Lessons save to a dedicated workspace. Your programs run locally and their actual output is checked.</p></div></li>
         </ol>
         <aside>
-          <strong>The current downloads are not code signed.</strong>
-          <p>Windows may show “Unknown publisher.” macOS may block the first launch until you use Open Anyway in Privacy &amp; Security. These warnings are real and will remain until platform signing is added.</p>
+          <strong>The current downloads do not have trusted platform signatures.</strong>
+          <p>Windows may show “Unknown publisher.” The Mac app has an ad-hoc integrity signature, but it is not Developer ID signed or notarized by Apple. macOS may block the first launch until you use Open Anyway in Privacy &amp; Security.</p>
         </aside>
       </section>
 
@@ -116,9 +116,27 @@
           <p>READY WHEN YOU ARE</p>
           <h2 id="final-title">Install Syntaxi and continue from your own workspace.</h2>
         </div>
-        <div class="final-download-actions"><a class="button primary" href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Web.Setup.exe"><span>Windows download</span><small>Small web installer</small></a><a class="button secondary" href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Mac.arm64.dmg"><span>macOS download</span><small>Apple silicon</small></a></div>
+        <div class="final-download-actions"><a class="button primary" href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Web.Setup.exe"><span>Windows download</span><small>Small web installer</small></a><a class="button secondary" data-macos-download data-mac-architecture="Apple silicon" href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Mac.arm64.dmg"><span>macOS download</span><small>Apple silicon</small></a></div>
       </section>
     </main>
+
+    <dialog class="mac-download-dialog" id="mac-download-dialog" aria-labelledby="mac-dialog-title" aria-describedby="mac-dialog-description mac-dialog-steps">
+      <div class="dialog-content">
+        <p class="dialog-label">BEFORE YOU DOWNLOAD</p>
+        <h2 id="mac-dialog-title">macOS may block Syntaxi the first time.</h2>
+        <p id="mac-dialog-description">Syntaxi is not Developer ID signed or notarized by Apple yet. The app has an ad-hoc integrity signature, but macOS Gatekeeper may still prevent it from opening. Sorry for the inconvenience.</p>
+        <ol id="mac-dialog-steps">
+          <li>Download the disk image, then drag Syntaxi into Applications.</li>
+          <li>Try to open Syntaxi once.</li>
+          <li>If macOS blocks it, open <strong>System Settings → Privacy &amp; Security</strong>, scroll to Security, and choose <strong>Open Anyway</strong>.</li>
+        </ol>
+        <p class="dialog-safety">Only continue if you are downloading from this official Syntaxi page.</p>
+        <div class="dialog-actions">
+          <form method="dialog"><button class="dialog-cancel" type="submit" value="cancel">Cancel</button></form>
+          <a class="button primary" id="mac-download-confirm" href="https://github.com/n3try/syntaxi/releases/latest/download/Syntaxi.Mac.arm64.dmg"><span>Download anyway</span><small id="mac-download-architecture">Apple silicon Mac</small></a>
+        </div>
+      </div>
+    </dialog>
 
     <footer class="site-footer">
       <span>© 2026 Syntaxi</span>

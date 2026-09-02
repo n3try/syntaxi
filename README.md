@@ -45,4 +45,4 @@ The current builds are not Authenticode-signed. Windows SmartScreen may display 
 
 ## macOS warning
 
-The current Mac builds are not signed or notarized. macOS Gatekeeper may block the first launch. Use **Open Anyway** in System Settings under Privacy &amp; Security only after confirming the download came from this repository. Apple signing and notarization are required before this should be treated as a polished production download.
+The current Mac builds have an ad-hoc integrity signature, but they are not Developer ID signed or notarized by Apple. macOS Gatekeeper may block the first launch. Use **Open Anyway** in System Settings under Privacy &amp; Security only after confirming the download came from this repository. Apple Developer ID signing and notarization are required before this should be treated as a polished production download.

@@ -61,3 +61,26 @@ test('primary controls meet the 44 pixel touch target used by this site', async 
     .filter(({ height, width }) => height < 44 || width < 24))
   expect(undersized).toEqual([])
 })
+
+test('every macOS download explains Gatekeeper before continuing', async ({ page }) => {
+  await page.goto('http://127.0.0.1:4173/')
+
+  const macDownloads = page.locator('[data-macos-download]')
+  await expect(macDownloads).toHaveCount(3)
+
+  await macDownloads.filter({ hasText: 'Intel Mac' }).click()
+  const dialog = page.locator('#mac-download-dialog')
+  await expect(dialog).toBeVisible()
+  await expect(dialog).toContainText('not Developer ID signed or notarized by Apple')
+  await expect(dialog).toContainText('System Settings → Privacy & Security')
+  await expect(page.locator('#mac-download-confirm')).toHaveAttribute('href', /Syntaxi\.Mac\.x64\.dmg$/)
+  await expect(page.locator('#mac-download-architecture')).toHaveText('Intel Mac')
+
+  await page.getByRole('button', { name: 'Cancel' }).click()
+  await expect(dialog).not.toBeVisible()
+  await expect(macDownloads.filter({ hasText: 'Intel Mac' })).toBeFocused()
+
+  await page.locator('#mac-download-button').click()
+  await expect(page.locator('#mac-download-confirm')).toHaveAttribute('href', /Syntaxi\.Mac\.arm64\.dmg$/)
+  await expect(page.locator('#mac-download-architecture')).toHaveText('Apple silicon Mac')
+})
